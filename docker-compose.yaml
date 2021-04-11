@@ -3,7 +3,11 @@ version: '3'
 services:
   db:
     image: mysql:8.0
+    container_name: db
+    volumes:
+        - dbdata:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: advancedroot
       MYSQL_DATABASE: userdb
@@ -11,6 +15,8 @@ services:
       MYSQL_PASSWORD: service_user
     ports:
       - "9906:3306"
+    expose:
+      - "9906"  
   web:
     image: php:7.2.2-apache
     container_name: php_web
@@ -22,3 +28,6 @@ services:
       - "8000:80"
     stdin_open: true
     tty: true
+
+volumes:
+  dbdata:

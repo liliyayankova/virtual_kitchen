@@ -1,7 +1,6 @@
 <?php
 //Database credentials
 define('DB_SERVER', 'db');
-define('DB_PORT', 9906);
 define('DB_USERNAME', 'service_user');
 define('DB_PASSWORD', 'service_user');
 define('DB_NAME', 'userdb');
