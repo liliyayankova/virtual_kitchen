@@ -1,6 +1,6 @@
 <?php
 //Database credentials
-define('DB_SERVER', 'db');
+define('DB_SERVER', 'userdb');
 define('DB_USERNAME', 'service_user');
 define('DB_PASSWORD', 'service_user');
 define('DB_NAME', 'userdb');
