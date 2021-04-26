@@ -17,7 +17,7 @@ Visit -> http://localhost:8000
 To stop the containers - docker-compose down
 
 For user service database:
-mysql -u root -padvancedweb -h127.0.0.1 -P9906 -> root user
+mysql -u root -padvancedroot -h127.0.0.1 -P9906 -> root user
 mysql -u service_user -pservice_user -h127.0.0.1 -P9906 -> service_user
 
 For recipe service database:
