@@ -7,8 +7,9 @@ docker ps -> check running containers
 docker ps -a -> check all containers
 
 Go into the main folder of this project
-Execute - docker-compose up -d --build (This calls the docker-compose.yaml file and starts the containers.
-The build option is for the Dockerfile - it enables the mysqli extension for the database);
+docker-compose down -v (stops the running containers and effectively deletes the database volumes)
+docker-compose build --no-cache (builds fresh images)
+docker-compose up -d (executes the docker-compose.yaml file)
 
 To check if the containers are running - docker ps
 
@@ -17,7 +18,7 @@ Visit -> http://localhost:8000
 To stop the containers - docker-compose down
 
 For user service database:
-mysql -u root -padvancedroot -h127.0.0.1 -P9906 -> root user
+mysql -u root -puserRoot -h127.0.0.1 -P9906 -> root user
 mysql -u service_user -pservice_user -h127.0.0.1 -P9906 -> service_user
 
 For recipe service database:

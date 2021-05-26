@@ -2,14 +2,15 @@ version: '3'
 
 services:
   userdb:
+    build: ./sql
     image: mysql:8.0
     container_name: user_db
     volumes:
-        - dbdata:/var/lib/mysql
+         - dbdata:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: advancedroot
+      MYSQL_ROOT_PASSWORD: userRoot
       MYSQL_DATABASE: userdb
       MYSQL_USER: service_user
       MYSQL_PASSWORD: service_user
@@ -18,7 +19,7 @@ services:
     expose:
       - "9906"  
   web:
-    build: .
+    build: ./php
     image: php:7.2.2-apache
     container_name: php_web
     depends_on:
@@ -30,23 +31,5 @@ services:
     stdin_open: true
     tty: true
 
-  recipedb:
-    image: mysql:8.0
-    container_name: recipe_db
-    volumes:
-        - recipedata:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: reciperoot
-      MYSQL_DATABASE: recipedb
-      MYSQL_USER: recipe_user
-      MYSQL_PASSWORD: recipe_user
-    ports:
-      - "9907:3306"
-    expose:
-      - "9907"  
-
 volumes:
   dbdata:
-  recipedata:
