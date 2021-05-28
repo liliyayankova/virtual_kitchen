@@ -20,7 +20,3 @@ To stop the containers - docker-compose down
 For user service database:
 mysql -u root -puserRoot -h127.0.0.1 -P9906 -> root user
 mysql -u service_user -pservice_user -h127.0.0.1 -P9906 -> service_user
-
-For recipe service database:
-mysql -u root -preciperoot -h127.0.0.1 -P9907 -> root user
-mysql -u recipe_user -precipe_user -h127.0.0.1 -P9907 -> recipe_user

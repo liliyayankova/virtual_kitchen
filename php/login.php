@@ -19,7 +19,7 @@
             //Checks the password against the one in the database
             if(password_verify($password, $user->password) ) {
                 $_SESSION['ID'] = $user->ID;
-                header("Location: http://localhost:8000/page2.php");
+                header("Location: http://localhost:8080/{$username}");
             } else{
                 echo '<script>
                         alert("Wrong password");
