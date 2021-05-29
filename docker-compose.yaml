@@ -17,7 +17,10 @@ services:
     ports:
       - "9906:3306"
     expose:
-      - "9906"  
+      - "9906"
+    networks:
+      - login_network
+
   web:
     build: ./php
     image: php:7.2.2-apache
@@ -28,8 +31,14 @@ services:
       - ./php/:/var/www/html/
     ports:
       - "8000:80"
+    networks:
+      - login_network
     stdin_open: true
     tty: true
 
 volumes:
   dbdata:
+
+networks:
+  login_network:
+    driver: bridge
